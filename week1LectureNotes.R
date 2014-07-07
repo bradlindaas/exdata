@@ -40,3 +40,20 @@ par(mfrow = c(1, 2), mar = c(5, 4, 2, 1))
 with(subset(pollution, region == "west"), plot(latitude, pm25, main = "West"))
 with(subset(pollution, region == "east"), plot(latitude, pm25, main = "East"))
 
+#PLOTTING SYSTEMS
+
+#base system
+library(datasets)
+data(cars)
+with(cars, plot(speed, dist))
+
+#lattice
+library(lattice)
+state <- data.frame(state.x77, region = state.region)
+xyplot(Life.Exp ~ Income | region, data = state, layout = c(4, 1))
+
+#ggplot2
+library(ggplot2)
+data(mpg)
+qplot(displ, hwy, data = mpg)
+
