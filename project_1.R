@@ -6,3 +6,9 @@ if (!file.exists(paste(dataDir, "household_power_consumption.txt", sep=""))) {
     unzip(paste(dataDir, "power.zip", sep=""), exdir=dataDir)
 }
 
+## the 'power' dataframe is 79Mb in memory, but took 348Mb to load
+## for now, let's make the power object smaller using nrows
+power <- read.table(paste(dataDir, "household_power_consumption.txt", sep=""), 
+                    sep=";", header=T, na.strings = "?", nrows=10000)
+## merge date and time together into a new column. Or should I convert in place?
+power$DateTime <- strptime(paste(power$Date, power$Time, sep = " "), "%d/%m/%Y %H:%M:%S")
