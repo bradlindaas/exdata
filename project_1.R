@@ -43,7 +43,7 @@ plot (
     power$Sub_metering_1,
     type="n",
     xlab="",
-    ylab="Energy Sub Metering"
+    ylab="Energy sub metering"
 )
 lines (
     power$DateTime,
