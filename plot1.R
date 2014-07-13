@@ -16,7 +16,6 @@ if (!file.exists(paste(dataDir, "summarySCC_PM25.rds", sep="")) | !file.exists(p
 
 ## read data from file
 NEI <- readRDS(paste(dataDir, "summarySCC_PM25.rds", sep=""))
-SCC <- readRDS(paste(dataDir, "Source_Classification_Code.rds", sep=""))
 
 ## Data Question 1
 # Have total emissions from PM2.5 decreased in the United States from 1999 to 2008?
@@ -28,7 +27,7 @@ data$sum <- data$sum/1000000 # make units better for plotting
 fit <- lm(data$sum ~ data$year)
 
 ## base plotting system
-#png(filename = "plot1.png", width = 480, height = 480, units = "px")
+png(filename = "plot1.png", width = 480, height = 480, units = "px")
 par(las=1)
 plot(
     data$year,
@@ -36,9 +35,9 @@ plot(
     type="n", 
     ylim=c(0,max(data$sum)),
     main="Trend in Emmissions",
-    ylab="Total Emissions (millions)",
+    ylab="Total Emissions of PM2.5 (millions of tons)",
     xlab="Year"
 )
 lines(data$year, data$sum)
 abline(fit, col="red")
-#dev.off()
+dev.off()

@@ -26,10 +26,13 @@ SCC <- readRDS(paste(dataDir, "Source_Classification_Code.rds", sep=""))
 # from 1999–2008? Use the ggplot2 plotting system to make a plot answer this 
 # question.
 
-
-
+NEI <- subset(NEI, fips == 24510)
+NEI <- transform(NEI, type=as.factor(type), year=as.factor(year))
+data <- ddply(NEI,c("year", "type"),summarize,sum=sum(Emissions))
 ## ggplot2 plotting system
-# png(filename = "plot3.png", width = 480, height = 480, units = "px")
+png(filename = "plot3.png", width = 780, height = 480, units = "px")
 
+g <- qplot(year, sum, data=data, facets= . ~ type)
+g + geom_smooth(aes(group=type), method="lm") + labs(title = "Trend in Emmissions for Baltimore City, MD") + labs(x = "Year") + labs(y = "Total Emmissions PM2.5")
 
-# dev.off()
+dev.off()
