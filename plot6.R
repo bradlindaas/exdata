@@ -1,6 +1,6 @@
 ## ExData Course Project 2
-## plot4.R
-## Generates plot4.png
+## plot6.R
+## Generates plot6.png
 
 library(plyr)
 library(ggplot2)
@@ -19,12 +19,13 @@ if (!file.exists(paste(dataDir, "summarySCC_PM25.rds", sep="")) | !file.exists(p
 NEI <- readRDS(paste(dataDir, "summarySCC_PM25.rds", sep=""))
 SCC <- readRDS(paste(dataDir, "Source_Classification_Code.rds", sep=""))
 
-## Data Question 4
-# Across the United States, how have emissions from coal combustion-related 
-# sources changed from 1999–2008?
+## Data Question 6
+# Compare emissions from motor vehicle sources in Baltimore City with emissions 
+# from motor vehicle sources in Los Angeles County, California (fips == "06037"). 
+# Which city has seen greater changes over time in motor vehicle emissions?
 
 ## ggplot2 plotting system
-# png(filename = "plot4.png", width = 480, height = 480, units = "px")
+# png(filename = "plot6.png", width = 480, height = 480, units = "px")
 
 
 # dev.off()

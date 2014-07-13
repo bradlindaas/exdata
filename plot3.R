@@ -20,8 +20,13 @@ NEI <- readRDS(paste(dataDir, "summarySCC_PM25.rds", sep=""))
 SCC <- readRDS(paste(dataDir, "Source_Classification_Code.rds", sep=""))
 
 ## Data Question 3
-# Across the United States, how have emissions from coal combustion-related 
-# sources changed from 1999–2008?
+# Of the four types of sources indicated by the type (point, nonpoint, onroad, 
+# nonroad) variable, which of these four sources have seen decreases in emissions 
+# from 1999–2008 for Baltimore City? Which have seen increases in emissions 
+# from 1999–2008? Use the ggplot2 plotting system to make a plot answer this 
+# question.
+
+
 
 ## ggplot2 plotting system
 # png(filename = "plot3.png", width = 480, height = 480, units = "px")

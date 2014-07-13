@@ -3,7 +3,6 @@
 ## Generates plot2.png
 
 library(plyr)
-library(ggplot2)
 
 ## set location to files 
 dataDir <- "/home/rstudio/largedata/"
@@ -20,15 +19,13 @@ NEI <- readRDS(paste(dataDir, "summarySCC_PM25.rds", sep=""))
 SCC <- readRDS(paste(dataDir, "Source_Classification_Code.rds", sep=""))
 
 ## Data Question 2
-# Of the four types of sources indicated by the type (point, nonpoint, onroad, 
-# nonroad) variable, which of these four sources have seen decreases in emissions 
-# from 1999–2008 for Baltimore City? Which have seen increases in emissions 
-# from 1999–2008? Use the ggplot2 plotting system to make a plot answer this 
-# question.
+# Have total emissions from PM2.5 decreased in the Baltimore City, Maryland 
+# (fips == "24510") from 1999 to 2008? Use the base plotting system 
+# to make a plot answering this question.
 
 
-## ggplot2 plotting system
-# png(filename = "plot2.png", width = 480, height = 480, units = "px")
+## base plotting system
+# png(filename = "plot3.png", width = 480, height = 480, units = "px")
 
 
 # dev.off()

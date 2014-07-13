@@ -3,7 +3,6 @@
 ## Generates plot1.png
 
 library(plyr)
-library(ggplot2)
 
 ## set location to files 
 dataDir <- "/home/rstudio/largedata/"
@@ -29,7 +28,7 @@ data$sum <- data$sum/1000000 # make units better for plotting
 fit <- lm(data$sum ~ data$year)
 
 ## base plotting system
-png(filename = "plot1.png", width = 480, height = 480, units = "px")
+#png(filename = "plot1.png", width = 480, height = 480, units = "px")
 par(las=1)
 plot(
     data$year,
@@ -42,4 +41,4 @@ plot(
 )
 lines(data$year, data$sum)
 abline(fit, col="red")
-dev.off()
+#dev.off()

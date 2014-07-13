@@ -20,9 +20,8 @@ NEI <- readRDS(paste(dataDir, "summarySCC_PM25.rds", sep=""))
 SCC <- readRDS(paste(dataDir, "Source_Classification_Code.rds", sep=""))
 
 ## Data Question 5
-# Compare emissions from motor vehicle sources in Baltimore City with emissions 
-# from motor vehicle sources in Los Angeles County, California (fips == "06037"). 
-# Which city has seen greater changes over time in motor vehicle emissions?
+# How have emissions from motor vehicle sources changed from 
+# 1999–2008 in Baltimore City?
 
 ## ggplot2 plotting system
 # png(filename = "plot5.png", width = 480, height = 480, units = "px")
