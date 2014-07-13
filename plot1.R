@@ -29,7 +29,7 @@ data$sum <- data$sum/1000000 # make units better for plotting
 fit <- lm(data$sum ~ data$year)
 
 ## base plotting system
-#png(filename = "plot1.png", width = 480, height = 480, units = "px")
+png(filename = "plot1.png", width = 480, height = 480, units = "px")
 par(las=1)
 plot(
     data$year,
@@ -42,14 +42,4 @@ plot(
 )
 lines(data$year, data$sum)
 abline(fit, col="red")
-#dev.off()
-
-## ggplot2
-#ggplot(
-#    data=data,
-#    aes(x=year, y=sum/1000000, group=1)) + geom_line() + geom_point() +
-#    xlab("Year") + ylab("Total Emmissions (millions)") +
-#    ggtitle("Trend in Emmissions") +
-#    geom_smooth(method=lm)
-
-
+dev.off()
