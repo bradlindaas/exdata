@@ -23,8 +23,15 @@ SCC <- readRDS(paste(dataDir, "Source_Classification_Code.rds", sep=""))
 # Across the United States, how have emissions from coal combustion-related 
 # sources changed from 1999–2008?
 
+coal <- as.character(SCC[(grepl("[Cc]oal", SCC$SCC.Level.Four)),1])
+NEI <- subset(NEI, SCC %in% coal)
+data <- ddply(NEI,c("year"),summarize,sum=sum(Emissions))
+data$sum <- data$sum/1000000 # make units better for plotting
+
 ## ggplot2 plotting system
-# png(filename = "plot4.png", width = 480, height = 480, units = "px")
+png(filename = "plot4.png", width = 480, height = 480, units = "px")
 
+g <- qplot(year, sum, data=data)
+g + geom_smooth(aes(), method="lm") + labs(title = "Trend in Emmissions from 'Coal' sources") + labs(x = "Year") + labs(y = "Total Emmissions PM2.5 (millions tons)") +coord_cartesian(ylim = c(0, 1.5*max(data$sum))) 
 
-# dev.off()
+dev.off()
