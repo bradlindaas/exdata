@@ -32,6 +32,11 @@ data$sum <- data$sum/1000000 # make units better for plotting
 png(filename = "plot4.png", width = 480, height = 480, units = "px")
 
 g <- qplot(year, sum, data=data)
-g + geom_smooth(aes(), method="lm") + labs(title = "Trend in Emmissions from 'Coal' sources") + labs(x = "Year") + labs(y = "Total Emmissions PM2.5 (millions tons)") +coord_cartesian(ylim = c(0, 1.5*max(data$sum))) 
+g + 
+    geom_smooth(aes(), method="lm") + 
+    labs(title = "Trend in Emmissions from 'Coal' sources") + 
+    labs(x = "Year") + 
+    labs(y = "Total Emmissions PM2.5 (millions tons)") +
+    coord_cartesian(ylim = c(0, 1.5*max(data$sum))) 
 
 dev.off()

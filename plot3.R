@@ -33,6 +33,10 @@ data <- ddply(NEI,c("year", "type"),summarize,sum=sum(Emissions))
 png(filename = "plot3.png", width = 780, height = 480, units = "px")
 
 g <- qplot(year, sum, data=data, facets= . ~ type)
-g + geom_smooth(aes(group=type), method="lm") + labs(title = "Trend in Emmissions for Baltimore City, MD") + labs(x = "Year") + labs(y = "Total Emmissions PM2.5")
+g + 
+    geom_smooth(aes(group=type), method="lm") + 
+    labs(title = "Trend in Emmissions for Baltimore City, MD") + 
+    labs(x = "Year") + 
+    labs(y = "Total Emmissions PM2.5")
 
 dev.off()
